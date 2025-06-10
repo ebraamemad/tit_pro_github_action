@@ -25,3 +25,9 @@ def predict(input_data):
     # Return the prediction result
     return prediction
 
+
+if __name__ == "__main__":
+    # Example usage
+    example_input = np.array([[3, 22, 1, 0, 7.25,0,1]], dtype=np.float32)  # Example input data
+    prediction = predict(example_input)
+    print(f"Prediction: {prediction}")  # Output the prediction result
