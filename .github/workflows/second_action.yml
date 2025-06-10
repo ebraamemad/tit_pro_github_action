@@ -1,0 +1,24 @@
+name: second-workflow
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: building image
+        run: docker build -t beboe668/fcb_repo:latest.
+
+      - name: Docker login
+        run: docker login -u beboe668 -p ${{ secrets.DOCKER_HUP_TOKEN }}
+
+      - name: Docker push
+        run: docker push beboe668/fcb_repo:latest
